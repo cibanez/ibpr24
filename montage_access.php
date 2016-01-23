@@ -55,7 +55,7 @@
 
         while ($tab = mysqli_fetch_array($result))
         {   
-            $filev = $tab['path'].$tab['name'].'.mp4';
+            $filev = $tab['path'].$tab['name'];
             $filei = $tab['path'].$tab['name'].'.png';
             $name = $tab['name'];
             $login = $tab['login'];

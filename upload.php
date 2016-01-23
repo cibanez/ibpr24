@@ -64,7 +64,7 @@
         </div>
      <?php } else { ?>
         <div>
-<img src="./img/404.png">
+            <img src="./img/404.png">
         </div>
           <?php }  ?>
 
@@ -74,7 +74,7 @@
     FOOTER
     =========================== -->
     <footer class="text-center">
-        <p>Ibanez ClÃ©ment & Branlat JÃ©rÃ©my</a></p>
+        <p>Ibanez Clement & Branlat Jeremy</a></p>
         <p>IBPR24</p>
     </footer>
 
