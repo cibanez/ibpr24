@@ -1,3 +1,4 @@
+<?php session_start() ?> 
 <!DOCTYPE html>
 <html lang="">
 
@@ -58,9 +59,31 @@
         </div>
         <br><br>
         <div class="text-center">
-            <p><input type="text" name="pseudo" id="pseudo" placeholder="Identifiant" ></p>
-            <p><input type="password" name="password" id="password" placeholder="Mot de passe" ></p>
-            <button type="button" class="btn btn-primary">Let's go</button>
+            <?php    
+                if(!isset($_SESSION['login']))
+                {?>
+                    <form method="post" action="connexion.php">
+                        <p><input type="text" name="login" id="login" placeholder="Identifiant" ></p>
+                        <p><input type="password" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
+                        <button name="Validation" type="submit" class="btn btn-primary">Let's go</button>
+                    </form>
+                    <?php
+                        if(isset($_SESSION['connexion']))
+                        {
+                            echo "blaireau";
+                        }
+                }        
+
+                else
+                {?>  
+                    <form method="post" action="deco.php">
+                        <p class="style3"> <?php echo 'Bonjour '.$_SESSION['login'] ?>
+                            <input name="deco" type="submit" value="Deco"/>
+                        </p>
+                    </form>
+                <?php
+                }
+                ?>
         </div>
         <!-- <input type="file" accept="video/*;capture=camcorder"> -->
     </div><!--container end-->
