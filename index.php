@@ -1,3 +1,4 @@
+<?php session_start() ?> 
 <!DOCTYPE html>
 <html lang="">
 
@@ -54,6 +55,7 @@
         ============================ -->
         <div id="header" class="row">
             <h1>Les potes en vadrouille</h1>
+            <?php include("header.php"); ?>
         </div>
     </div><!--container end-->
 
