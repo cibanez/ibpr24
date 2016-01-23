@@ -35,5 +35,5 @@ else{
 	$_SESSION['connexion']=true;
 }
 echo '<script language="Javascript"> document.location.replace("index.php"); </script>';
-
+ $connect->close();
 ?>

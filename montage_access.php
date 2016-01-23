@@ -16,7 +16,7 @@
     <!-- ===========================
     SITE TITLE
     =========================== -->
-    <title>Envoi la sauce</title>
+    <title>Montages</title>
 
     <!-- ===========================
     FAVICONS
@@ -46,14 +46,30 @@
 </head>
 
 <body>
+    <div>
+    <?php
+        include('open_bdd.php');
+        $request = "SELECT * FROM video;";
 
-    <div class="container">
-    <h1>Partage ton contenu</h1>
-        <div>
-            <input type="file" accept="video/*;capture=camcorder">
-        </div>
-    </div><!--container end-->
+        $result = mysqli_query($connect, $request);
 
+        while ($tab = mysqli_fetch_array($result))
+        {   
+            $filev = $tab['path'].$tab['name'].'.mp4';
+            $filei = $tab['path'].$tab['name'].'.png';
+            $name = $tab['name'];
+            $login = $tab['login'];
+            echo '<div class="container text-center">';
+                echo '<div>';
+                    echo '<h3>'.$name.'</h3>';
+                    echo '<video src="'.$filev.'" controls poster="'.$filei.'" width="80%"></video>';
+                    echo '<h6> Partagée par '.$login.'</h6>';
+                echo '</div>';
+            echo '</div><!--container end-->';
+        }
+    ?>
+    </div>
+    
     <!-- ===========================
     FOOTER
     =========================== -->

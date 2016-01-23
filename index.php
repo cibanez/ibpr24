@@ -70,7 +70,7 @@
                     <?php
                         if(isset($_SESSION['connexion']))
                         {
-                            echo "blaireau";
+                            echo " Echec de la connexion ";
                         }
                 }        
 
