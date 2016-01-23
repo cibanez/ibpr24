@@ -61,17 +61,24 @@
         <div class="text-center">
             <?php    
                 if(!isset($_SESSION['login']))
-                {?>
-                    <form method="post" action="connexion.php">
-                        <p><input type="text" name="login" id="login" placeholder="Identifiant" ></p>
-                        <p><input type="password" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
-                        <button name="Validation" type="submit" class="btn btn-primary">Let's go</button>
-                    </form>
+                {
+                    if(!isset($_SESSION['connexion']))
+                    {?>
+                        <form method="post" action="connexion.php">
+                            <p><input type="text" name="login" id="login" placeholder="Identifiant" ></p>
+                            <p><input type="password" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
+                            <button name="Validation" type="submit" class="btn btn-primary">Let's go</button>
+                        </form>
                     <?php
-                        if(isset($_SESSION['connexion']))
-                        {
-                            echo " Echec de la connexion ";
-                        }
+                    } else {?>
+                        <form method="post" action="connexion.php">
+                            <p><input type="text" style="border:solid #c9302c 1px" name="login" id="login" placeholder="Identifiant" ></p>
+                            <p><input type="password" style="border:solid #c9302c 1px" name="mdp" id="mdp" placeholder="Mot de passe" ></p>
+                            <button name="Validation" type="submit" class="btn btn-danger">Let's go</button>
+                        </form>
+                    <?php
+                    echo "Login et/ou mot de passe incorrect.";
+                    }
                 }        
 
                 else

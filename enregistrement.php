@@ -16,7 +16,7 @@ if(isset($_FILES['video'])) {
      if(move_uploaded_file($_FILES['video']['tmp_name'], $dossier . $fichier)){
 		$insert="INSERT INTO video(name,path,login,date) VALUES ('$name','$path','$login','$date');";
 		$result = mysqli_query($connect, $insert);
-		echo "Media bien enregistré !! Good Job minou";
+		echo '<script language="Javascript"> document.location.replace("montage_access.php"); </script>';
 	}
  }	
 

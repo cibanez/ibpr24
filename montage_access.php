@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="">
 
@@ -41,13 +42,16 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <div id="header" class="row">
         <div class="col-sm-1"><img class="logo" src="./img/logo.png"></div>  
-        <div class="col-sm-9 tittle"><h1>Les Potes en Vadrouille</h1></div>
+        <div class="col-sm-7 tittle"><h1>Les Potes en Vadrouille</h1></div>
+        <div class="col-sm-2 tittle"><p> Bonjour <?php echo $_SESSION['login'] ?> </p></div>
+        <div class="col-sm-2 tittle"><form method="post" action="deco.php"><button name="Validation" type="submit" class="btn btn-danger">Deconnexion</button></form></div>
     </div>
 </head>
 
 <body>
     <div>
-    <?php
+    <?php   
+    if(isset($_SESSION['login'])){
         include('open_bdd.php');
         $request = "SELECT * FROM video;";
 
@@ -67,7 +71,16 @@
                 echo '</div>';
             echo '</div><!--container end-->';
         }
+    } else {
     ?>
+ <div class="container">
+  <div>
+            <img src="./img/404.png">
+        </div>
+    </div>
+      
+    <?php
+     } ?>
     </div>
     
     <!-- ===========================
