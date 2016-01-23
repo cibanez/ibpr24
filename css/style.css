@@ -125,6 +125,16 @@ blockquote {
     text-align: right;
 }
 
+.logo{
+    height: 100%;
+    width: 100%;
+
+}
+
+.tittle{
+    margin-top: 2em;
+}
+
 footer p,
 footer a {
     font-size: 13px;
