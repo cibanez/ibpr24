@@ -61,6 +61,15 @@
                 <input type="file" id="video" name="video" accept="video/*;capture=camcorder">
                 <button name="Upload" type="submit" class="btn btn-primary">Upload</button>
             </form>
+
+            <?php 
+                if((isset($_SESSION['video'])) &&  ($_SESSION['video'] == true )) {
+                    ?>
+                    <p style="color:#c9302c;font-size:20px;padding-top:10px">Veuillez selectionner un fichier</p>
+                    <?php
+                }
+            ?>
+
         </div>
      <?php } else { ?>
         <div>

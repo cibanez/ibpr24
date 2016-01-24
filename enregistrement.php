@@ -16,9 +16,14 @@ if(isset($_FILES['video'])) {
      if(move_uploaded_file($_FILES['video']['tmp_name'], $dossier . $fichier)){
 		$insert="INSERT INTO video(name,path,login,date) VALUES ('$name','$path','$login','$date');";
 		$result = mysqli_query($connect, $insert);
+		$_SESSION['video'] = false;
 		echo '<script language="Javascript"> document.location.replace("montage_access.php"); </script>';
 	}
- }	
+	else {
+ 		$_SESSION['video'] = true;
+ 		echo '<script language="Javascript"> document.location.replace("upload.php"); </script>';
+ 	}	
+ }
 
  include('close_bdd.php');
 																
